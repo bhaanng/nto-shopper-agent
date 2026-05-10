@@ -15,8 +15,14 @@ from nto_agent import NTOAgent
 from customer_prompts import list_customers
 from dotenv import load_dotenv
 
-# Load environment variables
+# Load environment variables — local .env first, then Streamlit secrets
 load_dotenv()
+try:
+    for key, val in st.secrets.items():
+        if key not in os.environ:
+            os.environ[key] = str(val)
+except Exception:
+    pass
 
 # Page config
 st.set_page_config(
