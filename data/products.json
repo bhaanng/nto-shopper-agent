@@ -1,0 +1,202 @@
+[
+  {
+    "id": "sep001",
+    "name": "Fenty Beauty Pro Filt'r Soft Matte Longwear Foundation",
+    "category": "makeup",
+    "price": 42.00,
+    "description": "Long-wearing, soft matte foundation with medium to full buildable coverage in 50 shades",
+    "brand": "Fenty Beauty",
+    "concerns": ["oil control", "long-wear"],
+    "image_url": "https://sephora.com/product/fenty-foundation"
+  },
+  {
+    "id": "sep002",
+    "name": "Drunk Elephant C-Firma Fresh Day Serum",
+    "category": "skincare",
+    "price": 78.00,
+    "description": "Potent vitamin C day serum that firms, brightens, and improves signs of photoaging",
+    "brand": "Drunk Elephant",
+    "concerns": ["brightening", "anti-aging", "dark spots"],
+    "image_url": "https://sephora.com/product/c-firma"
+  },
+  {
+    "id": "sep003",
+    "name": "Charlotte Tilbury Pillow Talk Lipstick",
+    "category": "makeup",
+    "price": 35.00,
+    "description": "Iconic matte-revolution lipstick in universally flattering nude-pink shade",
+    "brand": "Charlotte Tilbury",
+    "concerns": ["hydration"],
+    "image_url": "https://sephora.com/product/pillow-talk"
+  },
+  {
+    "id": "sep004",
+    "name": "La Mer Crème de la Mer Moisturizer",
+    "category": "skincare",
+    "price": 190.00,
+    "description": "Legendary moisturizing cream that soothes, softens, and helps heal dry skin",
+    "brand": "La Mer",
+    "concerns": ["hydration", "sensitive skin", "anti-aging"],
+    "image_url": "https://sephora.com/product/creme-de-la-mer"
+  },
+  {
+    "id": "sep005",
+    "name": "Olaplex No. 3 Hair Perfector",
+    "category": "haircare",
+    "price": 30.00,
+    "description": "Intensive at-home treatment that reduces breakage and strengthens all hair types",
+    "brand": "Olaplex",
+    "concerns": ["damage repair", "strengthening"],
+    "image_url": "https://sephora.com/product/olaplex-3"
+  },
+  {
+    "id": "sep006",
+    "name": "Anastasia Beverly Hills Dipbrow Pomade",
+    "category": "makeup",
+    "price": 23.00,
+    "description": "Waterproof, smudge-proof eyebrow pomade for natural-looking definition",
+    "brand": "Anastasia Beverly Hills",
+    "concerns": ["long-wear", "waterproof"],
+    "image_url": "https://sephora.com/product/dipbrow"
+  },
+  {
+    "id": "sep007",
+    "name": "Yves Saint Laurent Black Opium Eau de Parfum",
+    "category": "fragrance",
+    "price": 98.00,
+    "description": "Addictive gourmand floral fragrance with coffee, vanilla, and white flowers",
+    "brand": "Yves Saint Laurent",
+    "concerns": [],
+    "image_url": "https://sephora.com/product/black-opium"
+  },
+  {
+    "id": "sep008",
+    "name": "The Ordinary Niacinamide 10% + Zinc 1%",
+    "category": "skincare",
+    "price": 6.50,
+    "description": "High-strength serum that reduces blemishes and balances visible sebum",
+    "brand": "The Ordinary",
+    "concerns": ["acne", "oil control", "pores"],
+    "image_url": "https://sephora.com/product/niacinamide"
+  },
+  {
+    "id": "sep009",
+    "name": "Rare Beauty Soft Pinch Liquid Blush",
+    "category": "makeup",
+    "price": 23.00,
+    "description": "Weightless, long-lasting liquid blush that blends and builds beautifully",
+    "brand": "Rare Beauty",
+    "concerns": ["long-wear"],
+    "image_url": "https://sephora.com/product/rare-blush"
+  },
+  {
+    "id": "sep010",
+    "name": "Too Faced Better Than Sex Mascara",
+    "category": "makeup",
+    "price": 29.00,
+    "description": "Volumizing mascara with hourglass brush for dramatic lashes",
+    "brand": "Too Faced",
+    "concerns": ["volume"],
+    "image_url": "https://sephora.com/product/better-than-sex"
+  },
+  {
+    "id": "sep011",
+    "name": "Tatcha The Water Cream",
+    "category": "skincare",
+    "price": 70.00,
+    "description": "Oil-free, anti-aging water cream that releases pure hydration",
+    "brand": "Tatcha",
+    "concerns": ["hydration", "oil control", "pores"],
+    "image_url": "https://sephora.com/product/water-cream"
+  },
+  {
+    "id": "sep012",
+    "name": "Urban Decay Naked3 Eyeshadow Palette",
+    "category": "makeup",
+    "price": 56.00,
+    "description": "12 rosy-neutral eyeshadows with buttery texture and high pigment",
+    "brand": "Urban Decay",
+    "concerns": [],
+    "image_url": "https://sephora.com/product/naked3"
+  },
+  {
+    "id": "sep013",
+    "name": "Living Proof Perfect Hair Day Dry Shampoo",
+    "category": "haircare",
+    "price": 29.00,
+    "description": "Award-winning dry shampoo that absorbs oil and adds volume",
+    "brand": "Living Proof",
+    "concerns": ["oil control", "volume"],
+    "image_url": "https://sephora.com/product/dry-shampoo"
+  },
+  {
+    "id": "sep014",
+    "name": "Gisou Honey Infused Hair Oil",
+    "category": "haircare",
+    "price": 44.00,
+    "description": "Nourishing hair oil with Mirsalehi honey for shine and repair",
+    "brand": "Gisou",
+    "concerns": ["shine", "damage repair", "frizz"],
+    "image_url": "https://sephora.com/product/gisou-oil"
+  },
+  {
+    "id": "sep015",
+    "name": "NARS Radiant Creamy Concealer",
+    "category": "makeup",
+    "price": 32.00,
+    "description": "Multi-action concealer that instantly brightens and perfects",
+    "brand": "NARS",
+    "concerns": ["dark circles", "brightening"],
+    "image_url": "https://sephora.com/product/nars-concealer"
+  },
+  {
+    "id": "sep016",
+    "name": "Sol de Janeiro Brazilian Bum Bum Cream",
+    "category": "bath",
+    "price": 48.00,
+    "description": "Fast-absorbing body cream with guaraná for tightening and smoothing",
+    "brand": "Sol de Janeiro",
+    "concerns": ["firming", "hydration"],
+    "image_url": "https://sephora.com/product/bum-bum-cream"
+  },
+  {
+    "id": "sep017",
+    "name": "Supergoop! Unseen Sunscreen SPF 40",
+    "category": "skincare",
+    "price": 36.00,
+    "description": "Invisible, weightless sunscreen with SPF 40 that grips makeup",
+    "brand": "Supergoop!",
+    "concerns": ["sun protection", "oil control"],
+    "image_url": "https://sephora.com/product/unseen-sunscreen"
+  },
+  {
+    "id": "sep018",
+    "name": "Huda Beauty Faux Filter Foundation",
+    "category": "makeup",
+    "price": 42.00,
+    "description": "Full-coverage, long-wear foundation with matte finish in 30 shades",
+    "brand": "Huda Beauty",
+    "concerns": ["oil control", "long-wear", "full coverage"],
+    "image_url": "https://sephora.com/product/huda-foundation"
+  },
+  {
+    "id": "sep019",
+    "name": "Summer Fridays Jet Lag Mask",
+    "category": "skincare",
+    "price": 49.00,
+    "description": "Lightweight hydrating mask that can be used overnight or as a moisturizer",
+    "brand": "Summer Fridays",
+    "concerns": ["hydration", "dryness"],
+    "image_url": "https://sephora.com/product/jet-lag-mask"
+  },
+  {
+    "id": "sep020",
+    "name": "Dyson Airwrap Multi-Styler",
+    "category": "tools",
+    "price": 599.00,
+    "description": "Revolutionary multi-styler that uses air to curl, wave, smooth, and dry",
+    "brand": "Dyson",
+    "concerns": ["styling", "heat damage protection"],
+    "image_url": "https://sephora.com/product/airwrap"
+  }
+]
