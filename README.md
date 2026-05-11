@@ -1,6 +1,16 @@
 # Shopper Agent Prototype
 
-A multi-brand AI shopping advisor built on Claude and Salesforce Commerce Cloud (SCAPI). Clone an existing agent, drop in SCAPI credentials, and have a branded demo running in minutes.
+An AI-powered shopping advisor platform built on Claude and Salesforce Commerce Cloud (SCAPI). It lets you rapidly spin up branded demo agents for any SFCC storefront — each with its own identity, system prompt, product catalog, and eval dataset.
+
+## What This Repo Helps You Do
+
+**Run live product discovery demos** — shoppers can chat naturally ("I need waterproof boots for hiking in the rain"), and the agent searches the real SCAPI catalog, surfaces relevant products with pricing, and guides the conversation with follow-up questions and suggestions.
+
+**Onboard new brands in minutes** — use the scaffold script or Claude Code skill to clone an existing agent, customise the branding and system prompt, drop in SCAPI credentials, and launch. No code changes required for new storefronts.
+
+**Evaluate and improve agent quality** — every session is logged automatically. After a conversation, click "Eval This Session" to score it across quality metrics (relevance, tone, product accuracy, cognitive load) using an LLM judge running in parallel. Use GEPA to auto-optimise the system prompt overlay against your eval dataset.
+
+**Support multiple languages** — agents detect the shopper's language from their first message and automatically switch the SCAPI locale (e.g. Japanese → `ja_JP`, French → `fr_FR`) so product results match.
 
 ## Repo Structure
 
