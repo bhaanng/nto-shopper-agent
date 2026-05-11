@@ -34,6 +34,16 @@ shopper-agent-prototype/
 └── requirements.txt
 ```
 
+## Included Agents
+
+| Agent | Brand | Description |
+|-------|-------|-------------|
+| `NTOManaged` | Northern Trail Outfitters | Outdoor gear, hiking, camping, climbing — base demo |
+| `shiseido_us` | Shiseido | Prestige Japanese beauty — skincare, makeup, fragrance |
+| `hibbett` | Hibbett Sports | Athletic footwear, sneakers, apparel, team sports gear |
+
+Each agent has its own system prompt, branding, locales, and eval dataset in `agents/<id>/config.yaml`.
+
 ## Quick Start
 
 ```bash
