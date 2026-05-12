@@ -12,19 +12,26 @@ Every session is logged and can be scored against quality metrics (relevance, to
 
 ## Get Started
 
-Run this one command in your terminal:
+**Step 1** — Run this in your terminal to clone the repo, install dependencies, and wire up the skill:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/bhaanng/shopper-agent-prototype/main/scripts/install_skill.sh | bash
 ```
 
-This clones the repo to `~/shopper-agent-prototype`, installs dependencies, and wires up the Claude Code skill. Then:
+**Step 2** — Restart Claude Code, then open it in the cloned repo:
 
-1. Restart Claude Code
-2. Open Claude Code in `~/shopper-agent-prototype`
-3. Type `/demo-shopper-agent`
+```bash
+cd ~/shopper-agent-prototype
+claude
+```
 
-Claude will ask for your brand name and SCAPI credentials and have your agent running in a browser within minutes.
+**Step 3** — In the Claude Code chat, type:
+
+```
+/demo-shopper-agent
+```
+
+Claude will ask for your brand name, tone, and SCAPI credentials — and have your agent running in a browser within minutes. No terminal commands needed after that.
 
 ## Included Agents
 
@@ -32,9 +39,10 @@ Claude will ask for your brand name and SCAPI credentials and have your agent ru
 |-------|-------|-------------|
 | `NTOManaged` | Northern Trail Outfitters | Outdoor gear, hiking, camping, climbing — base demo |
 | `shiseido_us` | Shiseido | Prestige Japanese beauty — skincare, makeup, fragrance |
-| `hibbett` | Hibbett Sports | Athletic footwear, sneakers, apparel, team sports gear |
 
 Each agent has its own system prompt, branding, locales, and eval dataset in `agents/<id>/config.yaml`.
+
+New agents are created via `/demo-shopper-agent` — Claude scaffolds and launches them without any manual file editing.
 
 ## Repo Structure
 
@@ -46,11 +54,10 @@ shopper-agent-prototype/
 │   └── system_prompt.py          # Base system prompt
 ├── agents/                       # One folder per brand
 │   ├── NTOManaged/               # Northern Trail Outfitters (base demo)
-│   ├── shiseido_us/              # Shiseido beauty advisor
-│   └── hibbett/                  # Hibbett sports
-│       ├── config.yaml           # Branding, system prompt, tools, locales, examples
-│       ├── config.env            # SCAPI credentials (not committed)
-│       └── eval_dataset.json     # Eval cases for this agent
+│   │   ├── config.yaml           # Branding, system prompt, tools, locales, examples
+│   │   ├── config.env            # SCAPI credentials (not committed)
+│   │   └── eval_dataset.json     # Eval cases for this agent
+│   └── shiseido_us/              # Shiseido beauty advisor
 ├── ui/
 │   └── app.py                    # Streamlit UI (shared across all agents)
 ├── evals/
@@ -141,15 +148,11 @@ Sessions are logged to `logs/sessions/<site_id>/` as JSONL files and cleaned up 
 
 ## Port Assignment
 
-Ports assigned alphabetically from 8501:
+Ports are assigned alphabetically from 8501 based on agent ID. Override with:
 
-| Agent | Port |
-|-------|------|
-| hibbett | 8501 |
-| NTOManaged | 8502 |
-| shiseido_us | 8503 |
-
-Override: `./start.sh NTOManaged 8510`
+```bash
+./start.sh NTOManaged 8510
+```
 
 ## Requirements
 
