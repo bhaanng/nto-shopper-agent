@@ -12,19 +12,14 @@ Every session is logged and can be scored against quality metrics (relevance, to
 
 ## Get Started
 
-Run this one command in your terminal:
-
 ```bash
-curl -fsSL https://raw.githubusercontent.com/bhaanng/shopper-agent-prototype/main/scripts/install_skill.sh | bash
+git clone https://github.com/bhaanng/shopper-agent-prototype.git
+cd shopper-agent-prototype
+pip3 install -r requirements.txt
+claude
 ```
 
-It clones the repo, installs dependencies, wires up the skill, prompts for credentials, and launches Claude Code automatically. Once Claude opens, type:
-
-```
-/demo-shopper-agent
-```
-
-Claude will ask for your brand name, tone, and SCAPI credentials — and have your agent running in a browser within minutes.
+Then type `/demo-shopper-agent` — Claude will ask for your brand name, tone, and SCAPI credentials and have your agent running in a browser within minutes.
 
 ## Included Agents
 
