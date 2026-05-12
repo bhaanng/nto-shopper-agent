@@ -190,13 +190,13 @@ fi
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 if [ "$ERRORS" -eq 0 ]; then
-  echo "  ✅ Setup complete! Next steps:"
+  echo "  ✅ Setup complete! Launching Claude Code..."
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
-  echo "  1. Restart Claude Code"
-  echo "  2. Open Claude Code in: $REPO_DIR"
-  echo "  3. Type: /demo-shopper-agent"
+  cd "$REPO_DIR"
+  exec claude
 else
   echo "  ⚠️  Setup incomplete — fix the errors above, then re-run."
   echo "  curl -fsSL https://raw.githubusercontent.com/bhaanng/shopper-agent-prototype/main/scripts/install_skill.sh | bash"
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 fi
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
