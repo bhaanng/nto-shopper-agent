@@ -12,7 +12,7 @@ from pathlib import Path
 
 sys.path.append(str(Path(__file__).parent.parent / "core"))
 
-from nto_agent import NTOAgent
+from shopper_agent import ShopperAgent
 from site_config import list_sites, load_site_scapi_env, get_site_ui
 from evals.session_logger import SessionLogger
 from dotenv import load_dotenv
@@ -296,7 +296,7 @@ div[data-testid="stHorizontalBlock"] .stButton > button:hover {
 """, unsafe_allow_html=True)
 
 
-def _build_agent(site_id: str) -> NTOAgent:
+def _build_agent(site_id: str) -> ShopperAgent:
     api_key = os.getenv("ANTHROPIC_API_KEY")
     if not api_key:
         st.error("❌ ANTHROPIC_API_KEY not found! Please set it in .env file.")
@@ -313,7 +313,7 @@ def _build_agent(site_id: str) -> NTOAgent:
         st.error("❌ SCAPI credentials not found. Check agents/{site_id}/config.env or root .env")
         st.stop()
 
-    return NTOAgent(
+    return ShopperAgent(
         api_key=api_key,
         base_url=os.getenv("ANTHROPIC_BASE_URL"),
         scapi_token_url=scapi_token_url,

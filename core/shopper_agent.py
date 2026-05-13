@@ -1,6 +1,7 @@
 """
-Northern Trail Outfitters (NTO) Shopping Agent
-Uses Claude API with custom tools to search NTO's catalog via Salesforce Commerce Cloud (SCAPI)
+Generic Shopper Agent
+Uses Claude API with custom tools to search brand catalogs via Salesforce Commerce Cloud (SCAPI)
+Supports multiple brands (NTO, Shiseido, Hibbett, etc.) with brand-specific configuration
 """
 
 import json
@@ -20,7 +21,7 @@ def _ms(start: float) -> str:
     return f"{(time.monotonic() - start) * 1000:.0f}ms"
 
 
-class NTOAgent:
+class ShopperAgent:
     def __init__(self, api_key: str, base_url: str = None,
                  scapi_token_url: str = None, scapi_client_credentials: str = None,
                  scapi_search_url: str = None, scapi_site_id: str = "NTOManaged",
@@ -220,7 +221,29 @@ class NTOAgent:
                     if price < min_price or price > max_price:
                         continue
 
+                # Extract image URL from various SCAPI response formats
                 raw_img = hit.get("c_imageUrl") or hit.get("image", {}).get("link", "")
+
+                # Hibbett: c_pdpRelatedMastersColors contains image URLs
+                if not raw_img and "c_pdpRelatedMastersColors" in hit:
+                    colors_data = hit.get("c_pdpRelatedMastersColors")
+                    if isinstance(colors_data, str):
+                        try:
+                            colors_data = json.loads(colors_data)
+                        except:
+                            pass
+                    if isinstance(colors_data, list) and len(colors_data) > 0:
+                        first_color = colors_data[0]
+                        raw_img = first_color.get("largeImageUrl") or first_color.get("swatchImageUrl", "")
+
+                # Fallback: check representedProducts for image
+                if not raw_img and "representedProducts" in hit:
+                    rep_products = hit.get("representedProducts", [])
+                    if isinstance(rep_products, list) and len(rep_products) > 0:
+                        first_rep = rep_products[0]
+                        if isinstance(first_rep, dict):
+                            raw_img = first_rep.get("c_imageUrl", "")
+
                 # Normalise protocol-relative URLs
                 if raw_img and raw_img.startswith("//"):
                     raw_img = "https:" + raw_img
@@ -357,6 +380,22 @@ class NTOAgent:
                     "required": ["query"],
                 },
             },
+            {
+                "name": "get_product_details",
+                "description": tc.get("details_description", "Fetch full product details including images, variations, and descriptions for up to 5 product IDs."),
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "product_ids": {
+                            "type": "array",
+                            "items": {"type": "string"},
+                            "description": "List of product IDs to fetch details for (max 5)",
+                            "maxItems": 5,
+                        }
+                    },
+                    "required": ["product_ids"],
+                },
+            },
         ]
 
     def _execute_tool(self, tool_name: str, tool_input: Dict, trace_fn=None) -> Any:
@@ -366,6 +405,12 @@ class NTOAgent:
             return {"status": "plan_created", "steps": tool_input.get("steps", []), "message": tool_input.get("message", "")}
         elif tool_name == "web_search":
             return self.web_search(tool_input.get("query", ""), min(tool_input.get("max_results", 5), 10))
+        elif tool_name == "get_product_details":
+            product_ids = tool_input.get("product_ids", [])[:5]  # max 5
+            results = {}
+            for pid in product_ids:
+                results[pid] = self.fetch_product_detail(pid)
+            return results
         else:
             return {"error": f"Unknown tool: {tool_name}"}
 

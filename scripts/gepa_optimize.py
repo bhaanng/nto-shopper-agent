@@ -31,7 +31,7 @@ from site_config import (
     _OVERLAY_SECTION,
 )
 from system_prompt import get_system_prompt as base_prompt
-from nto_agent import NTOAgent
+from shopper_agent import ShopperAgent
 
 try:
     from gepa.optimize_anything import GEPAConfig, EngineConfig, ReflectionConfig, optimize_anything
@@ -76,12 +76,12 @@ DEFAULT_EXAMPLES = [
 ]
 
 
-def _make_agent(site_id: str, overlay: str) -> NTOAgent:
+def _make_agent(site_id: str, overlay: str) -> ShopperAgent:
     """Spin up an agent with the given candidate overlay injected."""
     from site_config import load_site_scapi_env
     senv = load_site_scapi_env(site_id)
 
-    agent = NTOAgent(
+    agent = ShopperAgent(
         api_key=os.getenv("ANTHROPIC_API_KEY"),
         base_url=os.getenv("ANTHROPIC_BASE_URL"),
         scapi_token_url=senv.get("SCAPI_TOKEN_URL") or os.getenv("SCAPI_TOKEN_URL"),

@@ -142,8 +142,54 @@ Ports are assigned alphabetically from 8501 based on agent ID. Override with:
 ./start.sh NTOManaged 8510
 ```
 
+## Exposing Agents Publicly
+
+By default, agents run on localhost. To make them accessible via a public URL, use [ngrok](https://ngrok.com).
+
+**One-time setup:**
+
+```bash
+# 1. Install ngrok
+brew install ngrok/ngrok/ngrok
+
+# 2. Get authtoken from https://dashboard.ngrok.com/get-started/your-authtoken
+ngrok config add-authtoken YOUR_AUTHTOKEN_HERE
+```
+
+**Expose an agent:**
+
+```bash
+# Helper script (recommended)
+./expose_one.sh hibbett    # or nto, shiseido
+
+# Or manually with authtoken
+ngrok http 8501 --authtoken=YOUR_AUTHTOKEN_HERE  # Hibbett
+ngrok http 8502 --authtoken=YOUR_AUTHTOKEN_HERE  # NTO
+ngrok http 8503 --authtoken=YOUR_AUTHTOKEN_HERE  # Shiseido
+```
+
+ngrok will display a public URL like `https://abc123.ngrok-free.dev`.
+
+**Switch to a different agent:**
+
+```bash
+# Kill the current ngrok tunnel
+pkill ngrok
+
+# Start a new one for a different agent
+ngrok http 8502 --authtoken=YOUR_AUTHTOKEN_HERE  # Switch to NTO
+
+# Or use the helper script
+./expose_one.sh nto
+```
+
+**Note**: Free ngrok accounts allow one tunnel at a time. Stop the current tunnel before starting a new one, or upgrade to a paid plan for multiple simultaneous tunnels.
+
+---
+
 ## Requirements
 
 - Python 3.10+
 - Anthropic API key (Claude via AWS Bedrock or direct API)
 - SCAPI credentials for the target SFCC storefront
+- (Optional) ngrok account for sharing agents publicly

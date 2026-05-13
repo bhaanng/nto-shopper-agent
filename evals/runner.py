@@ -35,7 +35,7 @@ from typing import Optional
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "core"))
 
-from nto_agent import NTOAgent
+from shopper_agent import ShopperAgent
 from site_config import load_site_scapi_env
 from evals.metrics import PROXY_INDEX, METRIC_SCALES
 from evals.judge import LLMJudge, score_verdict, score_likert, score_ndcg
@@ -70,7 +70,7 @@ def run_evals(
 
     def _build_agent():
         senv = load_site_scapi_env(site_id) if site_id else {}
-        return NTOAgent(
+        return ShopperAgent(
             api_key=os.getenv("ANTHROPIC_API_KEY"),
             base_url=os.getenv("ANTHROPIC_BASE_URL"),
             scapi_token_url=senv.get("SCAPI_TOKEN_URL") or os.getenv("SCAPI_TOKEN_URL"),
